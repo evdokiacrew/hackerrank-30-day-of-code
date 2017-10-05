@@ -4,18 +4,31 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
-func main() {
-	var t int
-	var S string
+func splitOddLetters(S string) {
+	evenString := make([]byte, 0, 64)
+	oddString := make([]byte, 0, 64)
+	for i := 0; i < len(S); i++ {
+		if i%2 != 0 {
+			oddString = append(oddString, S[i])
+		} else {
+			evenString = append(evenString, S[i])
+		}
+	}
+	fmt.Println(string(evenString), string(oddString))
+}
 
-	fmt.Scan(&t)
-	for t >= 0; t-- {
+func main() {
+	var T int
+	var S string
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
-	S = scanner.Text()
-	fmt.Println(t, S)
+	T, _ = strconv.Atoi(scanner.Text())
+	for i := 0; i < T; i++ {
+		scanner.Scan()
+		S = scanner.Text()
+		splitOddLetters(S)
 	}
-	// теперь надо понять как все это тестировать, сижу разбираюсь
 }

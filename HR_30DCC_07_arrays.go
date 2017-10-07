@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func readAndReverse() {
+func main() {
 	//reading first string of STDIN as size of array
 	var N int
 	fmt.Scanf("%d", &N)
@@ -22,10 +22,6 @@ func readAndReverse() {
 	for i := range A {
 		fmt.Printf("%d ", A[i])
 	}
-}
-
-func main() {
-	readAndReverse()
 }
 
 //this time the code simpler and much faster without any packages (like bufio, os and strvconv)

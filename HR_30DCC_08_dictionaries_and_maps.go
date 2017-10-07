@@ -16,17 +16,13 @@ func main() {
 		phoneBook[name] = phoneNumber
 	}
 
-	//reading names, check phonebook with them and print them out
+	//reading names till last line, check phonebook with them and print them out
 	for {
-		var nameCheckEnd string
-		fmt.Scanf("%s", &name)
-		if name == "" {
+		_, err := fmt.Scanf("%s", &name)
+		//break when EOF in STDIN
+		if err != nil {
 			break
 		}
-		nameCheckEnd = name
-
-		//cant solve this, need to read new names until empty line
-
 		phoneNumber, ok := phoneBook[name]
 		if ok == true {
 			fmt.Printf("%s=%d\n", name, phoneNumber)

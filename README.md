@@ -4,3 +4,4 @@
 * Clean cases with comments
 * Using Golang (one task = one .go file)
 * https://www.hackerrank.com/domains/tutorials/30-days-of-code
+* Solving in progress, stay tuned

@@ -1,6 +1,7 @@
 /*
 Task
-Given a base-10 integer, n, convert it to binary (base-2). Then find and print the base-10 integer denoting the maximum number of consecutive 1's in n's binary representation.
+Given a base-10 integer, n, convert it to binary (base-2).
+Then find and print the base-10 integer denoting the maximum number of consecutive 1's in n's binary representation.
 
 Input Format
 A single integer, n.
@@ -18,6 +19,7 @@ func main() {
 	var n int
 	fmt.Scanf("%d", &n)
 	//printing n binary into another variable
-	nBinary := fmt.Printf("%b", n)
+	var nBinary string
+	nBinary = fmt.Sprintf("%b", n)
 	fmt.Println(nBinary)
 }

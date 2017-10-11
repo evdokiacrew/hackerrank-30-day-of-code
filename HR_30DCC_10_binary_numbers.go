@@ -15,11 +15,13 @@ package main
 import "fmt"
 
 func main() {
-	//reading n of STDIN
-	var n int
+	//reading n in STDIN
+	var n, count int
 	fmt.Scanf("%d", &n)
-	//printing n binary into another variable
-	var nBinary string
-	nBinary = fmt.Sprintf("%b", n)
-	fmt.Println(nBinary)
+	//while loop for count maximum number of consecutive 1 with bitwise logic
+	for n != 0 {
+		n = (n & (n << 1))
+		count++
+	}
+	fmt.Println(count)
 }

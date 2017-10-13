@@ -19,28 +19,29 @@ For each test case, print whether n is Prime or Not prime on a new line.
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	//reading first string of STDIN as number of test cases T
 	var T, n int
 	fmt.Scanf("%d", &T)
 
-	//
+	//loop through the number of test cases T and print out result to STDOUT
 	for i := 0; i < T; i++ {
 		fmt.Scanf("%d", &n)
 		fmt.Println(primeOrNot(n))
 	}
 }
 
-//WRONG, FIX IT NOW!
+//function of determining whether n is Prime number or not
 func primeOrNot(n int) string {
-	for i := 2; i < n; i++ {
-		for j := 2; j < i; j++ {
-			if i%j == 0 {
-				return "Prime"
-			}
+	for i := 2; i <= int(math.Sqrt(float64(n))); i++ {
+		if n%i == 0 {
+			return "Not prime"
 		}
 	}
-	return "Not prime"
+	return "Prime"
 }

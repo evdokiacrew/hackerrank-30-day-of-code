@@ -19,27 +19,30 @@ package main
 import (
 	"fmt"
 	"regexp"
+	"sort"
 )
 
 func main() {
-	//reading first string in STDIN as number of rows N in the table and initialize our map
+	//reading first string in STDIN as number of rows N in the table
 	var N int
 	fmt.Scanf("%d", &N)
-	emails := make(map[string]string)
 
-	//reading next string in STDIN and cycle it into our map (emails)
-	var name string
-	var id string
+	//loop reading strings in STDIN and append to our slice if regexp true
+	var name, id string
+	emails := make([]string, 0)
+	reg := regexp.MustCompile("@gmail.com$")
 	for i := 0; i < N; i++ {
 		fmt.Scanf("%s%s", &name, &id)
-		emails[name] = id
+		if reg.MatchString(id) {
+			emails = append(emails, name)
+		}
 	}
 
-	//COMPLETE!!!
-	r := regexp.MustCompile("@gmail.com$")
-	for i := 0; i < N; i++ {
-		fmt.Println(re.FindString(emails[]))
-	}
-		
+	//sort our slice with '@gmail.com' names
+	sort.Strings(emails)
+
+	//loop printing our slice to STDOUT
+	for i := range emails {
+		fmt.Println(emails[i])
 	}
 }

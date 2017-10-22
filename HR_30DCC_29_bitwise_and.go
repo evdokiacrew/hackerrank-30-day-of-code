@@ -34,8 +34,8 @@ func main() {
 //function to find out maximum bitwise of A and B  and lesser then K
 func maximumBitwiseAnd(N int, K int) int {
 	var bitwiseCurrent, bitwiseMaximum int
-	for i := 1; i < N; i++ {
-		for j := 2; j < N+1; j++ {
+	for i := 2; i <= N; i++ {
+		for j := 1; j < i; j++ {
 			bitwiseCurrent = i & j
 			if bitwiseCurrent < K && bitwiseCurrent > bitwiseMaximum {
 				bitwiseMaximum = bitwiseCurrent
